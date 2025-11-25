@@ -18,7 +18,7 @@ COHERE_API_KEY=YOUR_API_KEY
 
 ## Run di GPU3
 1. Run "python -m venv .venv" di terminal untuk membuat virtual environment
-2. Run ".\.venv\Scripts\activate" untuk activate virtual environment di vscode (akan muncul (.venv) di depan terminal)
+2. Run "source .venv\bin\activate" untuk activate virtual environment di vscode (akan muncul (.venv) di depan terminal)
 3. Install "pip install streamlit google-generativeai numpy python-dotenv" 
 4. Install "pip install cohere"
 5. Input di terminal "nano.env" buat API key
