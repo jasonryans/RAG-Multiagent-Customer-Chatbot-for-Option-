@@ -105,7 +105,7 @@ def reserve_table(table_num: int, user_name: str) -> str:
         if current_name is not None:
             info = f" (Booked at {current_time})" if current_time else ""
             return (
-                f"❌ Sorry, table {table_num} already booked by **{current_name}**{info}.\n\n"
+                f"❌ Sorry, table {table_num} already booked by somebody **{info}**.\n\n"
                 "Please select another table (1–8) or ask the Option staff directly."
             )
 
@@ -151,7 +151,7 @@ def cancel_reservation(table_num: int, user_name: str) -> str:
 
         if not requester:
             return (
-                f"The booking for table {table_num} is under the name **{current_name}**.\n\n"
+                f"The booking for table {table_num} is book by somebody.\n\n"
                 "To cancel this booking, please enter the same name in the **Your name** box "
                 "and then ask to cancel again, or contact the Option staff directly."
             )
@@ -159,8 +159,6 @@ def cancel_reservation(table_num: int, user_name: str) -> str:
         if requester != stored:
             return (
                 f"Only the person who booked this table can cancel it.\n\n"
-                f"The booking for table {table_num} is under **{current_name}**, "
-                f"but you entered **{user_name}**.\n\n"
                 "If this is a mistake, please update the name field or contact the Option staff directly."
             )
 
@@ -212,7 +210,7 @@ def main():
                 st.write(f"Table {i}: 🟢 **Available**")
             else:
                 name = res.get("name", "Booked")
-                st.write(f"Table {i}: 🔴 Booked ({name})")
+                st.write(f"Table {i}: 🔴 Booked")
 
     # 5) chat history
     if "history" not in st.session_state:
